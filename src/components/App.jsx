@@ -5,23 +5,6 @@ import { FormaContacts } from './formaContacts/FormaContacts';
 import { Filter } from './filter/Filter';
 import { Contacts } from './contacts/Contacts';
 
-// export const App = () => {
-//   return (
-//     <div
-//       style={{
-//         height: '100vh',
-//         display: 'flex',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         fontSize: 40,
-//         color: '#010101',
-//       }}
-//     >
-//       React homework template
-//     </div>
-//   );
-// };
-
 export class App extends Component {
   state = {
     contacts: [
@@ -49,8 +32,6 @@ export class App extends Component {
   handleChange = event => {
     const { value, name } = event.target;
     this.setState({ [name]: value });
-
-    // console.log(this.state.name);
   };
 
   hendleSubmit = event => {
@@ -61,14 +42,9 @@ export class App extends Component {
         contact => contact.name === name || contact.number === number
       )
     ) {
-      // alert('Contact with this name or number already exists.');
       alert(`${name} is already in contacts`);
       return;
     }
-    // this.setState({
-    //   contacts: contacts.concat({ name, number, id: nanoid() }),
-    // });
-    // this.setState({ name: '', number: '' });
 
     this.setState(prevState => ({
       contacts: prevState.contacts.concat({ name, number, id: nanoid() }),
@@ -88,7 +64,6 @@ export class App extends Component {
   }
 
   render() {
-    // console.log(this.state.name);
     const filteredContacts = this.applyFilters();
     return (
       <>
